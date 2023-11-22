@@ -6,15 +6,15 @@
 com 
 └── bank 
     ├── payment 
-    │   ├── PaymentMethods.java (абстрактный класс)
-    │   ├── Card.java (абстрактный класс)
+    │   ├── PaymentMethods.java (abstract class)
+    │   ├── Card.java (abstract class)
     │   ├── BankCard.java 
     │   ├── CreditCard.java 
     │   └── Cash.java 
     ├── human
     │   └── Human.java
     ├── printer
-    │   ├── Printable.java (интерфейс)
+    │   ├── Printable.java (interface)
     │   └── Printer.java
     └── MainApplication.java
 </pre>
