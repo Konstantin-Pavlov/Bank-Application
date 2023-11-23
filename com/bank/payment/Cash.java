@@ -4,15 +4,25 @@ import java.math.BigDecimal;
 
 public class Cash extends Card {
 
-    protected Cash(BigDecimal balance) {
+    public Cash(BigDecimal balance) {
         super(balance);
-        //TODO Auto-generated constructor stub
     }
 
     @Override
     public boolean pay(BigDecimal amount) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pay'");
+        System.out.println("оплата наличными");
+        BigDecimal curBalance = super.getBalance();
+        boolean possibleToPay = amount.compareTo(curBalance) <= 0; // amount <= curBalance;
+        System.out.println("Средсва: " + curBalance);
+
+        if (possibleToPay) {
+            super.setBalance(curBalance.subtract(amount));
+            System.out.println("заплачено: " + super.getBalanceInDecimalFormat(amount));
+            System.out.println("Осталось: " + super.getBalanceInDecimalFormat(super.getBalance()));
+        } else {
+            System.out.println("не хватает средств");
+        }
+        return possibleToPay;
     }
-    
+
 }

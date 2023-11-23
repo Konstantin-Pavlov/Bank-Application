@@ -4,15 +4,31 @@ import java.math.BigDecimal;
 
 public class BankCard extends Card {
 
-    protected BankCard(BigDecimal balance) {
+    public BankCard(BigDecimal balance) {
         super(balance);
-        //TODO Auto-generated constructor stub
+        super.setLimit(BigDecimal.valueOf(10000));
     }
 
     @Override
     public boolean pay(BigDecimal amount) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'pay'");
+        System.out.println("оплата банковской картой");
+        // compareTo Returns: -1, 0, or 1 as this BigDecimal is numerically less than, equal to, or greater than val
+        boolean succes = true;
+        BigDecimal curBalance = super.getBalance();
+
+        if (amount.compareTo(curBalance) <= 0) {
+            System.out.println("С вашей банковской карты списано " + super.getBalanceInDecimalFormat(amount));
+            super.setBalance(curBalance.subtract(amount));
+
+        } else if (amount.compareTo(curBalance.add(super.getLimit())) <= 0) {
+            System.out.println("средств банковской карты, с лимита списано " + (curBalance.subtract(amount)).abs());
+            super.setBalance(BigDecimal.valueOf(0));
+            super.setLimit(super.getLimit().subtract((curBalance.subtract(amount)).abs()));
+        } else {
+            System.out.println("не хватает средств  банковской карты и лимита чтобы оплатить");
+            succes = false;
+        }
+        return succes;
     }
-    
+
 }
