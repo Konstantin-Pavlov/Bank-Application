@@ -21,6 +21,6 @@ com
 
 ### In this structure:
 
-- payment contains all classes related to payment methods. <br>
-- human contains the Human class, which uses payment methods.  <br>
-- printer contains the Printable interface and the Printer class for displaying balances.  <br>
+- payment package contains all classes related to payment methods. <br>
+- human package contains the Human class, which uses payment methods.  <br>
+- printer package contains the Printable interface and the Printer class for displaying balances.  <br>
