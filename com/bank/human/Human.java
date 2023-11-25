@@ -12,7 +12,7 @@ import com.bank.payment.Card;
 
 public class Human {
 
-    private Random random = new Random();
+    private final Random random = new Random();
 
     PaymentMethods[] paymentMethods = { new Cash(BigDecimal.valueOf(5000)),
             new CreditCard(BigDecimal.valueOf(10000)), new BankCard(BigDecimal.valueOf(7000)) };

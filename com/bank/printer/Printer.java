@@ -29,8 +29,8 @@ public class Printer implements Printable {
     }
 
     @Override
-    public void drawLine(char fillCharacter, int times, boolean tablulation) {
-        if (tablulation) {
+    public void drawLine(char fillCharacter, int times, boolean tabulation) {
+        if (tabulation) {
             System.out.print("\n\t\t");
         }
         for (int i = 0; i < times; i++) {

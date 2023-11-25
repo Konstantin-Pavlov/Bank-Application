@@ -13,7 +13,7 @@ public class Cash extends Card {
         System.out.println("оплата наличными");
         BigDecimal curBalance = super.getBalance();
         boolean possibleToPay = amount.compareTo(curBalance) <= 0; // amount <= curBalance;
-        System.out.println("Средсва: " + curBalance);
+        System.out.println("Средства: " + curBalance);
 
         if (possibleToPay) {
             super.setBalance(curBalance.subtract(amount));
